@@ -14,16 +14,10 @@ namespace Inkopslista.Controllers
         [HttpGet]
         public IEnumerable<Ingredient> Get()
         {
-            using (IDbConnection db = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=recipies;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"))
+            using (IDbConnection db = new SqlConnection())
             {
                 db.Open();
-                var result = db.Query<Ingredient>("SELECT * FROM Recepie").ToList();
-
-                //foreach(var recepie in result)
-                //{
-                //    Console.WriteLine($"{recepie.Id}, {recepie.Name}");
-                //}
-
+                var result = db.Query<Ingredient>.ToList();
                 return result;
             }
         }

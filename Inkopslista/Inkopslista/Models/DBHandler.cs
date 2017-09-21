@@ -7,9 +7,18 @@ namespace Inkopslista.Models
 {
     public class DBHandler
     {
-        public static void CreateDB()
+        private static void CreateDatabase()
         {
-            
+            var cfg = DbService.Configure();
+            var export = new SchemaExport(cfg);
+            export.Create(true, true);
+        }
+
+        private static void DeleteDatabase()
+        {
+            var cfg = DbService.Configure();
+            var export = new SchemaExport(cfg);
+            export.Drop(false, true);
         }
     }
 }
