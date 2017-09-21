@@ -12,12 +12,12 @@ namespace Inkopslista.Controllers
     {
         // GET api/values
         [HttpGet]
-        public IEnumerable<Ingrediens> Get()
+        public IEnumerable<Ingredient> Get()
         {
             using (IDbConnection db = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=recipies;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"))
             {
                 db.Open();
-                var result = db.Query<Ingrediens>("SELECT * FROM Recepie").ToList();
+                var result = db.Query<Ingredient>("SELECT * FROM Recepie").ToList();
 
                 //foreach(var recepie in result)
                 //{

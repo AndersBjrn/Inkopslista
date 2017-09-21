@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Inkopslista.Models
 {
-    public class Ingrediens
+    public class Ingredient
     {
         public virtual Guid Id { get; set; }
         public virtual String Name { get; set; }
