@@ -7,12 +7,25 @@ using System.Web.Http;
 
 namespace Inkopslista.Controllers
 {
+    [RoutePrefix("API")]
     public class ValuesController : ApiController
     {
         // GET api/values
-        public IEnumerable<string> Get()
+        [HttpGet]
+        public IEnumerable<Ingrediens> Get()
         {
-            return new string[] { "value1", "value2" };
+            using (IDbConnection db = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=recipies;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"))
+            {
+                db.Open();
+                var result = db.Query<Ingrediens>("SELECT * FROM Recepie").ToList();
+
+                //foreach(var recepie in result)
+                //{
+                //    Console.WriteLine($"{recepie.Id}, {recepie.Name}");
+                //}
+
+                return result;
+            }
         }
 
         // GET api/values/5
@@ -35,5 +48,8 @@ namespace Inkopslista.Controllers
         public void Delete(int id)
         {
         }
+
+
+
     }
 }
