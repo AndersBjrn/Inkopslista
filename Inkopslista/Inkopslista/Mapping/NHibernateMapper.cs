@@ -22,12 +22,12 @@ namespace Inkopslista.Mapping
             //MapSubstantiv();
             //MapTheme();
             //MapAdjektiv();
-            MapIngrediens();
+            MapIngredient();
             return _modelMapper.CompileMappingForAllExplicitlyAddedEntities();
         }
-        private void MapIngrediens()
+        private void MapIngredient()
         {
-            _modelMapper.Class<Ingrediens>(e =>
+            _modelMapper.Class<Ingredient>(e =>
             {
                 e.Id(p => p.Id, p => p.Generator(Generators.GuidComb));
                 e.Property(p => p.Name);

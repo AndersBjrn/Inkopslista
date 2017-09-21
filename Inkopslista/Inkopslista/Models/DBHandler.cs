@@ -5,9 +5,11 @@ using System.Web;
 
 namespace Inkopslista.Models
 {
-    public class Ingredient
+    public class DBHandler
     {
-        public virtual Guid Id { get; set; }
-        public virtual String Name { get; set; }
+        public static void CreateDB()
+        {
+            
+        }
     }
 }

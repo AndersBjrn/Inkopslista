@@ -21,7 +21,7 @@ namespace WebApplication2.Services
             Configuration cfg = new Configuration()
                            .DataBaseIntegration(db =>
                            {
-                               db.ConnectionString = @"Server = (localdb)\mssqllocaldb; Database = Inkopslista; Trusted_Connection = True;";
+                               db.ConnectionString = @"Server = (localdb)\mssqllocaldb; Database = ingredientlist; Trusted_Connection = True;";
                                db.Dialect<MsSql2008Dialect>();
                            });
 
